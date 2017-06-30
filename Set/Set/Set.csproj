@@ -43,6 +43,7 @@
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HeaderCell.cs" />
     <Compile Include="IFileHelper.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -53,6 +54,7 @@
     <Compile Include="Scores.xaml.cs">
       <DependentUpon>Scores.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ScoreGrouping.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">

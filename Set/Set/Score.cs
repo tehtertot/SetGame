@@ -1,5 +1,6 @@
 ﻿using SQLite;
 using System;
+using System.Collections.ObjectModel;
 
 namespace Set
 {
@@ -12,6 +13,11 @@ namespace Set
 
         public string Type { get; set; }
 
+        public int OrderBy { get; set; }
+
+        public string ScoreDisplay { get; set; }
+
         public DateTime CreatedAt { get; set; }
+
     }
 }

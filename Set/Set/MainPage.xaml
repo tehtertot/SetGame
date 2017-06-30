@@ -4,13 +4,29 @@
              xmlns:local="clr-namespace:Set"
              x:Class="Set.MainPage">
 
-	<Label Text="Speed Set" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
-    <Button Text="Start Game" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center"
-                BackgroundColor="FloralWhite"
-           Clicked="StartGame"/>
-    
+    <Grid BackgroundColor="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="40*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="30*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Text="One Minute" VerticalOptions="Center" HorizontalOptions="Center"
+                BackgroundColor="LightCoral" Grid.Row="1" Grid.Column="1" 
+                Clicked="StartSpeedGame"/>
+        <Button Text="5 Sets" VerticalOptions="Center" HorizontalOptions="Center"
+                BackgroundColor="MediumPurple" Grid.Row="2" Grid.Column="1"
+                Clicked="StartTimedGame"/>
+
+        <Image Source="epc1.png" Grid.Row="4" Grid.Column="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+        <Image Source="syo2.png" Grid.Row="4" Grid.Column="1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+        <Image Source="frd3.png" Grid.Row="4" Grid.Column="2" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+    </Grid>
 </ContentPage>

@@ -13,11 +13,25 @@ namespace Set
         {
             InitializeComponent();
             this.Title = "Set!";
+            var toolbarItem = new ToolbarItem
+            {
+                Text = "My Scores"
+            };
+            toolbarItem.Clicked += async (sender, e) =>
+            {
+                await Navigation.PushAsync(new Scores());
+            };
+            ToolbarItems.Add(toolbarItem);
         }
 
-        private async void StartGame(object sender, EventArgs e)
+        private async void StartSpeedGame(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new GamePage());
+            await Navigation.PushAsync(new GamePage("speed"));
+        }
+
+        private async void StartTimedGame(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new GamePage("timed"));
         }
     }
 }

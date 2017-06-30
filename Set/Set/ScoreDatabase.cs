@@ -17,9 +17,19 @@ namespace Set
             database.CreateTableAsync<Score>().Wait();
         }
 
-        public Task<List<Score>> GetScoresAsync()
+        public Task<List<Score>> GetAllScoresAsync()
         {
-            return database.Table<Score>().OrderByDescending(s => s.NumSets).ToListAsync();
+            return database.Table<Score>().ToListAsync();
+        }
+
+        public Task<List<Score>> GetTimedScoresAsync()
+        {
+            return database.Table<Score>().OrderBy(s => s.NumSets).Where(s => s.Type=="timed").ToListAsync();
+        }
+
+        public Task<List<Score>> GetSpeedScoresAsync()
+        {
+            return database.Table<Score>().OrderByDescending(s => s.NumSets).Where(s => s.Type == "speed").ToListAsync();
         }
 
         public Task<Score> GetMaxScore()

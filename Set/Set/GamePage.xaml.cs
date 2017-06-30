@@ -17,17 +17,21 @@ namespace Set
         public int Points = 0;
         DateTime gameStartTime;
 
-        public GamePage()
+        public GamePage(string gameType)
         {
             InitializeComponent();
             inProgress = true;
             gameStartTime = DateTime.Now;
-            Device.StartTimer(TimeSpan.FromSeconds(61), () =>
+            if (gameType == "speed")
             {
-                SaveScore();
-                inProgress = false;
-                return inProgress;
-            });
+                Device.StartTimer(TimeSpan.FromSeconds(61), () =>
+                {
+                    SaveScore(Points, "speed");
+                    inProgress = false;
+                    return inProgress;
+                });
+            }
+            //show timer
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {
                 this.Title = (DateTime.Now - gameStartTime).ToString(timeFormat) + "    Sets: " + Points;
@@ -147,6 +151,13 @@ namespace Set
 
                 SetWithSolution();
                 selectedImages.Clear();
+
+                if (Points == 5)
+                {
+                    int seconds = (int)(DateTime.Now - gameStartTime).TotalSeconds;
+                    SaveScore(seconds, "timed");
+                    inProgress = false;
+                }
             }
         }
 
@@ -177,14 +188,29 @@ namespace Set
             return isValid;
         }
 
-        private async void SaveScore()
+        private async void SaveScore(int score, string type)
         {
-            await DisplayAlert("Time's Up!", $"You got {Points} sets in 1 minute.", "OK");
+            int Order = score;
+            string Display = "";
+            if (type == "speed")
+            {
+                await DisplayAlert("Time's Up!", $"You got {score} sets in 1 minute.", "OK");
+                Display = score.ToString() + " sets";
+            }
+            else if (type == "timed")
+            {
+                TimeSpan t = TimeSpan.FromSeconds(score);
+                Display = t.ToString(@"mm\:ss");
+                Order = score * -1;
+                await DisplayAlert("10 Sets!", $"You finished in {score} seconds.", "OK");
+            }
             Score s = new Score
             {
-                NumSets = Points,
+                NumSets = score,
                 CreatedAt = DateTime.Now,
-                Type = "Timed"
+                Type = type,
+                OrderBy = Order,
+                ScoreDisplay = Display
             };
             await App.Database.SaveScore(s);
             await Navigation.PushAsync(new Scores());

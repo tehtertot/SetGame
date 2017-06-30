@@ -6,7 +6,7 @@
         <ListView x:Name="AllScores" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding NumSets}" Detail="{Binding CreatedAt}" />
+                    <TextCell Text="{Binding ScoreDisplay}" Detail="{Binding CreatedAt}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
