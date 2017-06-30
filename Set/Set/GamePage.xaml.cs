@@ -103,54 +103,117 @@ namespace Set
             }
             if (selectedImages.Count == 3)  //check the 3 cards selected 
             {
-                //replace each card
-                foreach (string r in selectedImages)
-                {
-                    //get the index of the card InPlay to replace
-                    string[] rstring = r.Split('-');
-                    string rep = rstring[rstring.Length - 1];
-                    int replace = Convert.ToInt32(rep);
-
-                    if (ValidateChoices(selectedImages))
+                if (ValidateChoices(selectedImages)) {
+                    foreach (string r in selectedImages)
                     {
-                        //discard the set, replace the card
+                        string[] rstring = r.Split('-');
+                        string rep = rstring[rstring.Length - 1];
+                        int replace = Convert.ToInt32(rep);
                         Deck.InPlay[replace] = Deck.DrawCard();
-                        if (r.Equals(selectedImages[0]))
-                        {
-                            Points++;
-                        }
-                    }
-                    else
-                    {
-                        if (r.Equals(selectedImages[2]))
-                        {
-                            await DisplayAlert("Nope", "It's not a set.", "Try again");
-                        }
-                    }
-                    //display the new card or card with black background
-                    int col = replace % 3;
-                    int row;
-                    if (replace <= 2)
-                    {
-                        row = 0;
-                    }
-                    else if (replace <= 5)
-                    {
-                        row = 1;
-                    }
-                    else if (replace <= 8)
-                    {
-                        row = 2;
-                    }
-                    else
-                    {
-                        row = 3;
-                    }
-                    DisplayCardImage(replace, col, row);
-                }
 
-                SetWithSolution();
-                selectedImages.Clear();
+                        int col = replace % 3;
+                        int row;
+                        if (replace <= 2)
+                        {
+                            row = 0;
+                        }
+                        else if (replace <= 5)
+                        {
+                            row = 1;
+                        }
+                        else if (replace <= 8)
+                        {
+                            row = 2;
+                        }
+                        else
+                        {
+                            row = 3;
+                        }
+                        DisplayCardImage(replace, col, row);
+                    }
+                    Points++;
+                    SetWithSolution();
+                    selectedImages.Clear();
+                }
+                else
+                {
+                    foreach (string r in selectedImages)
+                    {
+                        string[] rstring = r.Split('-');
+                        string rep = rstring[rstring.Length - 1];
+                        int replace = Convert.ToInt32(rep);
+
+                        int col = replace % 3;
+                        int row;
+                        if (replace <= 2)
+                        {
+                            row = 0;
+                        }
+                        else if (replace <= 5)
+                        {
+                            row = 1;
+                        }
+                        else if (replace <= 8)
+                        {
+                            row = 2;
+                        }
+                        else
+                        {
+                            row = 3;
+                        }
+                        DisplayCardImage(replace, col, row);
+                    }
+                    await DisplayAlert("Nope", "It's not a set.", "Try again");
+                    selectedImages.Clear();
+                }
+                //replace each card
+                //foreach (string r in selectedImages)
+                //{
+                //    //get the index of the card InPlay to replace
+                //    string[] rstring = r.Split('-');
+                //    string rep = rstring[rstring.Length - 1];
+                //    int replace = Convert.ToInt32(rep);
+
+                //    if (ValidateChoices(selectedImages))
+                //    {
+                //        //discard the set, replace the card
+                //        Deck.InPlay[replace] = Deck.DrawCard();
+                //        if (r.Equals(selectedImages[0]))
+                //        {
+                //            Points++;
+                //        }
+                //    }
+                //    else
+                //    {
+                //        if (r.Equals(selectedImages[2]))
+                //        {
+                //            await DisplayAlert("Nope", "It's not a set.", "Try again");
+                //        }
+                //    }
+                //    //display the new card or card with black background
+                //    int col = replace % 3;
+                //    int row;
+                //    if (replace <= 2)
+                //    {
+                //        row = 0;
+                //    }
+                //    else if (replace <= 5)
+                //    {
+                //        row = 1;
+                //    }
+                //    else if (replace <= 8)
+                //    {
+                //        row = 2;
+                //    }
+                //    else
+                //    {
+                //        row = 3;
+                //    }
+                //    DisplayCardImage(replace, col, row);
+                //}
+
+                //SetWithSolution();
+                //selectedImages.Clear();
 
                 if (Points == 5)
                 {
@@ -196,12 +259,12 @@ namespace Set
             {
                 await DisplayAlert("Time's Up!", $"You got {score} sets in 1 minute.", "OK");
                 Display = score.ToString() + " sets";
+                Order = score * -1;
             }
             else if (type == "timed")
             {
                 TimeSpan t = TimeSpan.FromSeconds(score);
                 Display = t.ToString(@"mm\:ss");
-                Order = score * -1;
                 await DisplayAlert("10 Sets!", $"You finished in {score} seconds.", "OK");
             }
             Score s = new Score
