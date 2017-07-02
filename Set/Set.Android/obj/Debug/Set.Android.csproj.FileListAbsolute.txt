@@ -138,3 +138,9 @@ C:\Users\tehte\Desktop\Xamarin\Set\Set\Set.Android\obj\Debug\android\assets\SQLi
 C:\Users\tehte\Desktop\Xamarin\Set\Set\Set.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 C:\Users\tehte\Desktop\Xamarin\Set\Set\Set.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\tehte\Desktop\Xamarin\Set\Set\Set.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+C:\Users\tehte\Desktop\Xamarin\Set\Set\Set.Android\obj\Debug\res\drawable\seticon.png
+C:\Users\tehte\Desktop\Xamarin\Set\Set\Set.Android\obj\Debug\res\drawable\logo.png
+C:\Users\tehte\Desktop\Xamarin\Set\Set\Set.Android\obj\Debug\res\drawable\setlogo.png
+C:\Users\tehte\Desktop\Xamarin\Set\Set\Set.Android\obj\Debug\res\drawable\t.png
+C:\Users\tehte\Desktop\Xamarin\Set\Set\Set.Android\obj\Debug\res\drawable\e.png
+C:\Users\tehte\Desktop\Xamarin\Set\Set\Set.Android\obj\Debug\res\drawable\s.png

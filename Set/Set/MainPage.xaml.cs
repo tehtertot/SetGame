@@ -26,12 +26,18 @@ namespace Set
 
         private async void StartSpeedGame(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new GamePage("speed"));
+            await Navigation.PushAsync(new Selection("speed"), true);
+            
         }
 
         private async void StartTimedGame(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new GamePage("timed"));
+            await Navigation.PushAsync(new Selection("timed"), true);
+        }
+
+        private async void ShowInstructions(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Instructions(), true);
         }
     }
 }

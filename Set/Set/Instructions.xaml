@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Set.Instructions">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label FontAttributes="Bold"  Text="Goal" />
+            <Label Text="Timed: Collect the specified number of sets as quickly as possible." />
+            <Label Text="Speed: Collect as many sets as possible within the allotted time." />
+            <Label FontAttributes="Bold" Text="How To Play" />
+            <Label Text="Each image has 4 attributes: color, number, pattern, and shape. A set is made up of three cards that are either all the same or all different within each of the four categories." />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

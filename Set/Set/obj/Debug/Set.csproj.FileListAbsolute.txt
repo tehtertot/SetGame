@@ -20,3 +20,5 @@ C:\Users\tehte\Desktop\Xamarin\Set\Set\Set\bin\Debug\Xamarin.Forms.Platform.pdb
 C:\Users\tehte\Desktop\Xamarin\Set\Set\Set\bin\Debug\Xamarin.Forms.Xaml.pdb
 C:\Users\tehte\Desktop\Xamarin\Set\Set\Set\bin\Debug\Xamarin.Forms.Xaml.xml
 C:\Users\tehte\Desktop\Xamarin\Set\Set\Set\obj\Debug\Set.GamePage.xaml.g.cs
+C:\Users\tehte\Desktop\Xamarin\Set\Set\Set\obj\Debug\Set.Instructions.xaml.g.cs
+C:\Users\tehte\Desktop\Xamarin\Set\Set\Set\obj\Debug\Set.Selection.xaml.g.cs
